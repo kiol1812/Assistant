@@ -132,3 +132,4 @@ dist
 # add from kiol1812
 .vscode
 yarn.lock
+debug.*

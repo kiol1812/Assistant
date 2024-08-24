@@ -7,7 +7,7 @@ References:
 ## Introduction
 Record the process of writing a personal assistant which developed using discord.js.
 
-## environment
+## Environment
 [`node.js LTS`](https://nodejs.org/en)  
 [`nvm: node.js version manager`](https://github.com/coreybutler/nvm-windows/releases)>`assets` > `nvm-setup.exe` { if dev with windows }
 ```
@@ -34,7 +34,7 @@ $ node -v
 [yarn: package manager](https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable)
 - node.js 自帶`npm`，裝`yrarn`是因為較快。
 
-# Basic bot
+## Basic bot
 ```
 yarn add discord.js
 yarn add dotenv
@@ -42,6 +42,7 @@ yarn add dotenv
 About `basic bot code` refer to [commit: `🎉 env initialization and basic bot`](https://github.com/kiol1812/Assistant/commit/c7bc285b455057269e9b2a6590b0172246c086ca)  
 About `token` or `discord application` refer to [build basic discord bot](https://youtu.be/-oBSz4MZC6Q?si=IbbbM3TPUqgt0J-s).
 
-
-
+## Slash Commands
+refer to [commit: ``]()
+寫法參照官方檔案，跟播放清單的內容，沒有完全照著寫，因為播放清單的方法用到vite跟vue等，而目前不想一直用套件，有提到可以手刻，不過目前尚未研究出來。
 
