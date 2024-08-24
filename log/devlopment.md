@@ -43,6 +43,6 @@ About `basic bot code` refer to [commit: `🎉 env initialization and basic bot`
 About `token` or `discord application` refer to [build basic discord bot](https://youtu.be/-oBSz4MZC6Q?si=IbbbM3TPUqgt0J-s).
 
 ## Slash Commands
-refer to [commit: ``]()
+refer to [commit: `✨ feat: Slash Commands`](https://github.com/kiol1812/Assistant/commit/773d198a05dc304ea7fa6c9675b8947a14c6f624)
 寫法參照官方檔案，跟播放清單的內容，沒有完全照著寫，因為播放清單的方法用到vite跟vue等，而目前不想一直用套件，有提到可以手刻，不過目前尚未研究出來。
 
