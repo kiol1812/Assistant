@@ -6,6 +6,7 @@ discord bot using discord.js
 .env
 .package.json
 yarn.lock
+.node_modules/...
 src/
 ├── deploy_commands.js
 ├── main.js
@@ -26,7 +27,7 @@ refer to [build basic discord bot](https://youtu.be/-oBSz4MZC6Q?si=IbbbM3TPUqgt0
 ```palin
 $ yarn upload
 ```
-Refer to `package.json`, this command will execute `node src/deploy_commands.js`. In other words, It'll run a script that registering all commands which under directory `commands`(refer to [Directory Structure of dir `commands`](src\commands\readme.md)).
+Refer to `package.json`, this command will execute `node src/deploy_commands.js`. In other words, It'll run a script that registering all commands which under directory `commands`(refer to [Directory Structure of dir `commands`](src/commands/readme.md)).
 
 ## Activate Bot
 ```palin
