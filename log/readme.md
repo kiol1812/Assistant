@@ -51,4 +51,73 @@ refer to [commit: `✨ feat: Slash Commands`](https://github.com/kiol1812/Assist
 The program writing method refers to the `official documents` and `playlist`, but it is not completely copied, because the playlist method uses `vite`, `vue`.  
 Currently, I don’t want to use the kits all the time, it has been mentioned that you could write it by self, but I haven’t researched it yet.
 
+## Date Schedule
+``` javascript
+// time covert
+let date = new Date() // now
+dataValues = [
+  date.getFullYear(),
+  date.getMonth() + 1, // !
+  date.getDate(),
+  date.getHours(),
+  date.getMinutes(),
+  date.getSeconds(),
+];
+console.log(dataValues);
+```
+``` javascript
+// change day
+let theDay = new Date();
+let changeDay = 30;
+let timeStamp = theDay.setDate(theDay.getDate() + changeDay);
+console.log(theDay.toISOString());
+```
+``` javascript
+// time zone
+new Date('2017-07-09 00:00:00 +0800');
+// Sun Jul 09 2017 00:00:00 GMT+0800 (CST)
+// Note that if want to store in DB, need to use UTC (+0)
+```
 
+
+## How to use SQLite with `sqlite3`
+refer to [SQL Note](./Note/SQL.md), but has little difference between `SQL` and `SQLite`.  
+check out [SQLite Note](./Note/SQLite.md)
+``` javascript
+// smaple example to explain how to use sqlite3
+import sqlite3 from 'sqlite3';
+
+const DB = new sqlite3.Database("./src/DB/test.db"); // static path, template
+DB.serialize(() => { // use serialize to make sure it was in order
+    DB.run("CREATE TABLE lorem (info TEXT)");
+    const stmt = DB.prepare("INSERT INTO lorem VALUES (?)");
+    for (let i = 0; i < 10; i++) {
+        stmt.run("Ipsum " + i);
+    }
+    stmt.finalize();
+    DB.each("SELECT rowid AS id, info FROM lorem", (err, row) => {
+        console.log(row.id + ": " + row.info);
+    });
+});
+
+DB.close();
+```
+
+## Slash Command to Operate SQLite
+refer to [schedule/index.js](../src/commands/schedule/index.js).  
+1. schedule post
+    ``` plain
+    (typing in discord)
+    /schedule post [matter:] [start:] [end:]
+    
+    e.g.
+    /schedule post matter:matter 1 start:2024-08-30 12:40:00 end:2024-08-30 13:40:00
+    ```
+    It'll insert a new matter object into table `schedule` that from `DB/test.db`.
+2. schedule list
+    ```plain
+    (typing in discord)
+    /schedule list
+    ```
+    It'll reply all matters from table `schedule` that from  `DB/test.db`.  
+    like this ![](https://i.imgur.com/rbLhXJN.png)
