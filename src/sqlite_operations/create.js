@@ -1,6 +1,6 @@
 import sqlite3 from 'sqlite3';
 
-const createTable = (DB, table, callbacks=null) => {
+export const createTable = (DB, table, callbacks=null) => {
     DB.serialize(() => {
         DB.run(`CREATE TABLE ${table} (\`id\` INTEGER PRIMARY KEY AUTOINCREMENT,\`description\` TEXT,\`timestamp\` TIMESTAMP DEFAULT CURRENT_TIMESTAMP)`, function(err){
             if(err){
@@ -18,7 +18,7 @@ const createTable = (DB, table, callbacks=null) => {
     });
 }
 
-const checkTables = (DB, table, callbacks=null) => {
+export const checkTables = (DB, table, callbacks=null) => {
     DB.serialize(()=>{
         DB.all("SELECT name FROM sqlite_master WHERE type='table'", function(err, tables){
             console.log(tables); // table.length
@@ -26,7 +26,7 @@ const checkTables = (DB, table, callbacks=null) => {
     });
 }
 
-const deleteTable = (DB, table, callbacks=null) => {
+export const deleteTable = (DB, table, callbacks=null) => {
     DB.serialize(()=>{
         DB.run(`DROP TABLE ${table}`, function(err){
             if(err){
@@ -35,19 +35,3 @@ const deleteTable = (DB, table, callbacks=null) => {
         });
     });
 }
-
-let tasks = [];
-tasks.push(checkTables);
-// tasks.push(createTable);
-// tasks.push(checkTables);
-tasks.push(deleteTable);
-tasks.push(checkTables);
-
-const execute = (tasks=[], db_path="./src/DB/test.db", table="`schedule`") => {
-    const DB = new sqlite3.Database(db_path); // static path, template
-    while(tasks.length>0){
-        tasks.shift()(DB, table);
-    }
-    DB.close();
-}
-execute(tasks);

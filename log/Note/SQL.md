@@ -179,7 +179,7 @@ JOIN `branch` -- default use "RIGHT JOIN", could use "LEFT JOIN"
 ON `employee`.`emp_id` = `branch`.`manager_id`;
 ```
 #### Alter
-更改table中的欄位。
+edit column of table.
 ``` SQL
 ALTER TABLE `tableName` ADD newColumn DECIMAL(3, 2);
 ALTER TABLE `tableName` DROP COLUMN newColumn;
