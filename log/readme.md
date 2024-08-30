@@ -102,3 +102,22 @@ DB.serialize(() => { // use serialize to make sure it was in order
 
 DB.close();
 ```
+
+## Slash Command to Operate SQLite
+refer to [schedule/index.js](../src/commands/schedule/index.js).  
+1. schedule post
+    ``` plain
+    (typing in discord)
+    /schedule post [matter:] [start:] [end:]
+    
+    e.g.
+    /schedule post matter:matter 1 start:2024-08-30 12:40:00 end:2024-08-30 13:40:00
+    ```
+    It'll insert a new matter object into table `schedule` that from `DB/test.db`.
+2. schedule list
+    ```plain
+    (typing in discord)
+    /schedule list
+    ```
+    It'll reply all matters from table `schedule` that from  `DB/test.db`.  
+    like this ![](https://i.imgur.com/rbLhXJN.png)

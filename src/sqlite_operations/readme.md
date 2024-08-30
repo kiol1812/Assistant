@@ -14,12 +14,28 @@ src/
     └── test.db
 ```
 ## create.js
-- createTable( `[DB:sqlite3.Database()]` , `[table:String]` , `callbacks:NULL`)
-- checkTables( `[DB:sqlite3.Database()]` , `[table:String]` , `callbacks:NULL`)
-- deleteTable( `[DB:sqlite3.Database()]` , `[table:String]` , `callbacks:NULL`)
+> createTable( `[DB:sqlite3.Database()]` , `[table:String]` , `callbacks:NULL`)  
+>  
+> Create a table, default named `schedule` and use `DB/test.db`
+
+> checkTables( `[DB:sqlite3.Database()]` , `[table:String]` , `callbacks:NULL`)  
+>  
+> Check out how many table exit, then show all. Default to chect out `DB/test.db`.
+
+> deleteTable( `[DB:sqlite3.Database()]` , `[table:String]` , `callbacks:NULL`)  
+>  
+>Delete a table. Default to remove table `schedule` from `DB/test.db`.
 
 ## update.js
-- post( `[DB:sqlite3.Database()]` , `[table:String]` , `[newDate:String[]]`, `[column]:String`, `callbacks:NULL`)
+> post( `[DB:sqlite3.Database()]` , `[table:String]` , `[newDate:String[]]`, `[column]:String`, `callbacks:NULL`)  
+>   
+> Add a new item to table. Default use table `schedule` from `DB/test.db`.
 
 ## load.js
-- select( `[DB:sqlite3.Database()]` , `[table:String]` , `callbacks:NULL`)
+> showAll( `[DB:sqlite3.Database()]` , `[table:String]` , `callbacks:NULL`)  
+>  
+> Display all items from table. Default use table `schedule` from `DB/test.db`.
+
+> getData( `[DB:sqlite3.Database()]` , `[table:String]` , `callbacks:NULL`)  
+>  
+> A promise function. return all items from table. Default use table `schedule` from `DB/test.db`.
